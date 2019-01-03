@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:trips_app/description_place.dart';
+import 'package:trips_app/gradientBack.dart';
+import 'package:trips_app/review_list.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
+  String descriptionDummy =
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. \n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.";
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -18,9 +24,22 @@ class MyApp extends StatelessWidget {
         // or simply save your changes to "hot reload" in a Flutter IDE).
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
-        primarySwatch: Colors.blue,
+          primarySwatch: Colors.blue,
+          fontFamily: "Lato"
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: Scaffold(
+        body: Stack(
+          children: <Widget>[
+            ListView(
+              children: <Widget>[
+                DescriptionPlace("Mi titulo", descriptionDummy, 5),
+                ReviewList()
+              ],
+            ),
+            GradientBack()
+          ],
+        ),
+      ),
     );
   }
 }
@@ -96,7 +115,10 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.display1,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .display1,
             ),
           ],
         ),

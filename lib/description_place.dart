@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 
 class DescriptionPlace extends StatelessWidget {
-
   final String description;
   final String title;
   final int starts;
 
   DescriptionPlace(this.title, this.description, this.starts);
-
 
   @override
   Widget build(BuildContext context) {
@@ -61,9 +59,11 @@ class DescriptionPlace extends StatelessWidget {
       children: <Widget>[
         titleStart,
         Container(
-          margin: EdgeInsets.only(top: 10, left: 20, right: 10),
-          child: Text(description, style: TextStyle(fontFamily: "Lato"),)
-        )
+            margin: EdgeInsets.only(top: 10, left: 20, right: 10),
+            child: Text(
+              description,
+              style: TextStyle(fontFamily: "Lato"),
+            )),
       ],
     );
     return descriptionContainer;
